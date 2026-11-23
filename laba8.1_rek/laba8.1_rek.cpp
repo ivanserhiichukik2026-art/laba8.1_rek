@@ -16,17 +16,17 @@ int Count(char* str, char c, int i = 0) // кількість символів c
 
 char* Change(char* dest, char* str, char* t, int i = 0) // заміна кожного слова "BASIC" на "Delphi"
 {
-    if (str[i] == '\0')
+    if (str[i] == '\0') // старий рядок закінчився то повертаємо новий рядок з самого початку
         return dest;
 
     if (str[i] == 'B' && str[i + 1] == 'A' && str[i + 2] == 'S' && str[i + 3] == 'I' && str[i + 4] == 'C')
     {
-        strcat(t, "Delphi");
+        strcat(t, "Delphi"); // дописуєм делфі
         return Change(dest, str, t + 6, i + 5);
     }
     else
     {
-        *t++ = str[i++];
+        *t++ = str[i++]; // переписує одну букву і дві позиції зсуваєм на 1
         *t = '\0';
         return Change(dest, str, t, i);
     }
